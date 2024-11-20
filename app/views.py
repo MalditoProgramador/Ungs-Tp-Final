@@ -11,8 +11,8 @@ def index_page(request):
 # esta función obtiene 2 listados que corresponden a las imágenes de la API y los favoritos del usuario, y los usa para dibujar el correspondiente template.
 # si el opcional de favoritos no está desarrollado, devuelve un listado vacío.
 def home(request):
-    images = []
-    favourite_list = []
+    images = services.getAllImages #Pasa el JSON a imagenes y se obtiene las CARDS
+    favourite_list = services.getAllFavourites 
 
     return render(request, 'home.html', { 'images': images, 'favourite_list': favourite_list })
 
