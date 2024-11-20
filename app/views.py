@@ -11,8 +11,8 @@ def index_page(request):
 # esta función obtiene 2 listados que corresponden a las imágenes de la API y los favoritos del usuario, y los usa para dibujar el correspondiente template.
 # si el opcional de favoritos no está desarrollado, devuelve un listado vacío.
 def home(request):
-    images = services.getAllImages #Pasa el JSON a imagenes y se obtiene las CARDS
-    favourite_list = services.getAllFavourites 
+    images = services.getAllImages(input=None) #Pasa el JSON a imagenes y se obtiene las CARDS
+    favourite_list = services.getAllFavourites
 
     return render(request, 'home.html', { 'images': images, 'favourite_list': favourite_list })
 
@@ -22,7 +22,9 @@ def search(request):
     # si el texto ingresado no es vacío, trae las imágenes y favoritos desde services.py,
     # y luego renderiza el template (similar a home).
     if (search_msg != ''):
-        pass
+        images = services.getAllImages(search_msg) #Pasa el JSON a imagenes y se obtiene las CARDS
+        favourite_list = services.getAllFavourites
+        return render(request, 'home.html', { 'images': images, 'favourite_list': favourite_list })
     else:
         return redirect('home')
 
@@ -42,8 +44,11 @@ def saveFavourite(request):
 
 @login_required
 def deleteFavourite(request):
-    pass
+    services.deleteFavourite(request)
+    favourite_list = services.getAllFavourites(request)
+    return render(request, 'favourites.html', { 'favourite_list': favourite_list })
 
 @login_required
 def exit(request):
-    pass
+    logout(request)
+    return redirect('index-page')
