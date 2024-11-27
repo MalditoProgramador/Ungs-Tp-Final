@@ -1,9 +1,9 @@
 {% extends 'header.html' %} {% block content %} {% if request.user.is_authenticated %}
-<h2 class="text-center">Bienvenido {{ user.username | upper }}!</h2>
+<h2 class="text-center">𝗕𝗶𝗲𝗻𝘃𝗲𝗻𝗶𝗱𝗼 {{ user.username | upper }}!</h2>
 {% else %}
-<h2 class="text-center">Bienvenido!</h2>
+<h2 class="text-center">𝗕𝗶𝗲𝗻𝘃𝗲𝗻𝗶𝗱𝗼!</h2>
 {% endif %}
 <p class="text-center">
-    Mirá las imágenes desde <a href="{% url 'home' %}">este link.</a>
+    𝐌𝐢𝐫𝐚́ 𝐥𝐚𝐬 𝐢𝐦𝐚́𝐠𝐞𝐧𝐞𝐬 𝐝𝐞𝐬𝐝𝐞 <a href="{% url 'home' %}">este link.</a>
 </p>
 {% endblock %}

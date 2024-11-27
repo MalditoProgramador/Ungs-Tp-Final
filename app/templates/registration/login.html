@@ -1,31 +1,31 @@
 {% extends 'header.html' %}
 
 {% block content %}
-<div class="container d-flex justify-content-center align-items-center" style="height: 100vh;">
-    <div class="card shadow-sm" style="max-width: 400px; width: 100%; padding: 2rem;">
+<div class="container d-flex justify-content-center align-items-center" style="height: 85vh; background-color: #f4f7fc;">
+    <div class="card shadow-sm" style="max-width: 400px; width: 100%; padding: 2rem; border-radius: 12px; background-color: #ffffff;">
         <form action="" method="POST">
             {% csrf_token %}
-            <h2 class="text-center mb-4">Inicio de sesión</h2>
+            <h2 class="text-center mb-4" style="color: #007bff;">𝐈𝐧𝐢𝐜𝐢𝐨 𝐝𝐞 𝐬𝐞𝐬𝐢𝐨́𝐧</h2>
 
             <!-- Usuario -->
             <div class="form-group mb-3">
-                <label for="username" class="form-label">Usuario</label>
-                <input type="text" name="username" id="username" class="form-control" placeholder="Usuario" required>
+                <label for="username" class="form-label" style="color: #333;">𝗨𝘀𝘂𝗮𝗿𝗶𝗼</label>
+                <input type="text" name="username" id="username" class="form-control" placeholder="Iɴɢʀᴇsᴇ sᴜ usᴜᴀʀɪᴏ​​​​​" required style="border-radius: 8px; border: 1px solid #007bff; transition: border 0.3s;">
             </div>
 
             <!-- Contraseña -->
             <div class="form-group mb-3">
-                <label for="password" class="form-label">Contraseña</label>
-                <input type="password" name="password" id="password" class="form-control" placeholder="Contraseña" required>
+                <label for="password" class="form-label" style="color: #333;">𝐂𝐨𝐧𝐭𝐫𝐚𝐬𝐞𝐧̃𝐚</label>
+                <input type="password" name="password" id="password" class="form-control" placeholder="Iɴɢʀᴇsᴇ sᴜ ᴄᴏɴᴛʀᴀsᴇɴ̃ᴀ" required style="border-radius: 8px; border: 1px solid #007bff; transition: border 0.3s;">
             </div>
 
             <!-- Botón de envío -->
             <div class="form-group mt-4">
-                <button type="submit" class="btn btn-primary w-100">Ingresar</button>
+                <button type="submit" class="btn btn-primary w-100" style="border-radius: 8px; background-color: #007bff; border: none; padding: 10px; color: #fff;">Iɴɢʀᴇsᴀʀ</button>
             </div>
             
             {% if form.errors %}
-                <div class="alert alert-danger mt-3">
+                <div class="alert alert-danger mt-3" style="border-radius: 8px; background-color: #f8d7da; color: #721c24;">
                     <ul>
                         {% for error in form.errors %}
                             <li>{{ error }}</li>
@@ -34,11 +34,11 @@
                 </div>
             {% endif %}
 
-            
             <div class="text-center mt-3">
-                <a href="{% url 'password_reset' %}" class="text-muted">¿Olvidaste tu contraseña?</a>
+                <a href="{% url 'password_reset' %}" class="text-muted" style="color: #007bff; text-decoration: none;"> ¿𝐎𝐥𝐯𝐢𝐝𝐚𝐬𝐭𝐞 𝐭𝐮 𝐜𝐨𝐧𝐭𝐫𝐚𝐬𝐞𝐧̃𝐚❓</a>
             </div>
         </form>
     </div>
 </div>
+
 {% endblock %}
